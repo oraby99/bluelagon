@@ -11,8 +11,11 @@
                 <img src="{{ $slider->image_path }}" alt="{{ $slider->title }}"
                     class="absolute inset-0 w-full h-full object-cover">
                 <div class="relative z-20 h-full flex items-center justify-center text-center px-4">
-                    <div>
-                        <h1 class="text-5xl md:text-7xl font-bold text-white mb-6 drop-shadow-lg">{{ $slider->title }}</h1>
+                    <div class="max-w-4xl mx-auto">
+                        <h1
+                            class="text-5xl md:text-7xl font-bold text-white mb-6 drop-shadow-lg tracking-tight leading-tight">
+                            {{ $slider->title }}
+                        </h1>
                         @if($slider->link)
                             <a href="{{ $slider->link }}"
                                 class="inline-block bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-full text-lg font-bold transition shadow-lg hover:shadow-xl transform hover:-translate-y-1">
@@ -37,9 +40,12 @@
     <!-- Categories Section -->
     <section class="py-20 bg-white">
         <div class="container mx-auto px-4">
-            <h2 class="text-4xl font-bold text-center mb-4">Our Adventures</h2>
-            <p class="text-gray-600 text-center mb-12 max-w-2xl mx-auto">Choose your perfect getaway from our diverse
-                range of activities.</p>
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold mb-4 text-gray-900">Our Adventures</h2>
+                <div class="w-24 h-1 bg-blue-600 mx-auto rounded-full mb-4"></div>
+                <p class="text-gray-600 max-w-2xl mx-auto text-lg">Choose your perfect getaway from our diverse range of
+                    activities.</p>
+            </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
                 @foreach($categories as $category)
@@ -60,7 +66,8 @@
                         <div
                             class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent flex flex-col justify-end p-8">
                             <h3 class="text-2xl font-bold text-white mb-2 group-hover:text-blue-400 transition">
-                                {{ $category->name }}</h3>
+                                {{ $category->name }}
+                            </h3>
                             <span
                                 class="text-white/80 text-sm opacity-0 group-hover:opacity-100 transition transform translate-y-4 group-hover:translate-y-0 duration-300">View
                                 Tours &rarr;</span>
@@ -74,13 +81,14 @@
     <!-- Featured Tours Section -->
     <section class="py-20 bg-gray-50">
         <div class="container mx-auto px-4">
-            <div class="flex justify-between items-end mb-12">
-                <div>
-                    <h2 class="text-4xl font-bold mb-4">Popular Tours</h2>
-                    <p class="text-gray-600">Don't miss out on our most booked experiences.</p>
+            <div class="flex flex-col md:flex-row justify-between items-end mb-12">
+                <div class="max-w-2xl">
+                    <h2 class="text-4xl font-bold mb-4 text-gray-900">Popular Tours</h2>
+                    <div class="w-20 h-1 bg-blue-600 rounded-full mb-4"></div>
+                    <p class="text-gray-600 text-lg">Don't miss out on our most booked experiences.</p>
                 </div>
                 <a href="{{ route('tours.index') }}"
-                    class="hidden md:flex items-center gap-2 text-blue-600 font-bold hover:text-blue-700 transition">
+                    class="hidden md:flex items-center gap-2 text-blue-600 font-bold hover:text-blue-700 transition mt-4 md:mt-0">
                     View All Tours <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                             d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
@@ -128,7 +136,8 @@
                                 </span>
                             </div>
                             <h3 class="text-xl font-bold mb-3 line-clamp-1 group-hover:text-blue-600 transition">
-                                {{ $tour->name }}</h3>
+                                {{ $tour->name }}
+                            </h3>
                             <p class="text-gray-600 mb-6 line-clamp-2 text-sm leading-relaxed">
                                 {{ Str::limit(strip_tags($tour->description), 100) }}
                             </p>
@@ -160,11 +169,12 @@
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                 @foreach($testimonials as $testimonial)
                     <div class="bg-gray-50 p-8 rounded-2xl relative">
-                        <svg class="w-10 h-10 text-blue-200 absolute top-6 left-6" fill="currentColor" viewBox="0 0 24 24">
+                        <svg class="w-12 h-12 text-blue-100 absolute top-4 left-4" fill="currentColor" viewBox="0 0 32 32"
+                            aria-hidden="true">
                             <path
-                                d="M14.017 21L14.017 18C14.017 16.054 15.331 15.818 16.905 15.149C17.056 15.086 17.219 15.023 17.397 14.953C17.644 14.856 17.91 14.751 18.195 14.634C18.827 14.376 19.526 14.09 19.987 13.629C20.358 13.258 20.576 12.749 20.576 12.195V6.971C20.576 5.869 19.679 4.972 18.577 4.972H14.017C12.915 4.972 12.018 5.869 12.018 6.971V12.195C12.018 12.934 12.419 13.587 13.018 13.952V21H14.017ZM8.017 21L8.017 18C8.017 16.054 9.331 15.818 10.905 15.149C11.056 15.086 11.219 15.023 11.397 14.953C11.644 14.856 11.91 14.751 12.195 14.634C12.827 14.376 13.526 14.09 13.987 13.629C14.358 13.258 14.576 12.749 14.576 12.195V6.971C14.576 5.869 13.679 4.972 12.577 4.972H8.017C6.915 4.972 6.018 5.869 6.018 6.971V12.195C6.018 12.934 6.419 13.587 7.018 13.952V21H8.017Z" />
+                                d="M9.352 4C4.456 7.456 1 13.12 1 19.36c0 5.088 3.072 8.064 6.624 8.064 3.36 0 5.856-2.688 5.856-5.856 0-3.168-2.208-5.472-5.088-5.472-.576 0-1.344.096-1.536.192.48-3.264 3.552-7.104 6.624-9.024L9.352 4zm16.512 0c-4.8 3.456-8.256 9.12-8.256 15.36 0 5.088 3.072 8.064 6.624 8.064 3.264 0 5.856-2.688 5.856-5.856 0-3.168-2.304-5.472-5.184-5.472-.576 0-1.248.096-1.44.192.48-3.264 3.456-7.104 6.528-9.024L25.864 4z" />
                         </svg>
-                        <div class="relative z-10 pt-8">
+                        <div class="relative z-10 pt-6">
                             <div class="flex text-yellow-400 mb-4">
                                 @for($i = 0; $i < $testimonial->rating; $i++)
                                     <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
