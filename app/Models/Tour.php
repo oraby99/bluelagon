@@ -1,0 +1,48 @@
+<?php
+
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
+use Spatie\Translatable\HasTranslations;
+use Spatie\MediaLibrary\HasMedia;
+use Spatie\MediaLibrary\InteractsWithMedia;
+
+class Tour extends Model implements HasMedia
+{
+    use HasFactory, HasTranslations, InteractsWithMedia;
+
+    protected $fillable = [
+        'category_id',
+        'name',
+        'slug',
+        'description',
+        'price',
+        'location',
+        'duration',
+        'includes',
+        'excludes',
+        'schedule',
+        'is_active'
+    ];
+
+    protected $translatable = ['name', 'description', 'includes', 'excludes', 'schedule'];
+
+    protected $casts = [
+        'includes' => 'array',
+        'excludes' => 'array',
+        'schedule' => 'array',
+        'price' => 'decimal:2',
+        'is_active' => 'boolean',
+    ];
+
+    public function category()
+    {
+        return $this->belongsTo(Category::class);
+    }
+
+    public function bookings()
+    {
+        return $this->hasMany(Booking::class);
+    }
+}
