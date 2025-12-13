@@ -57,7 +57,7 @@
                                 'island' => 'https://images.unsplash.com/photo-1590523277543-a94d2e4eb00b?w=800&q=80',
                                 'safari' => 'https://images.unsplash.com/photo-1533090161767-e6ffed986c88?w=800&q=80',
                                 'activity' => 'https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=800&q=80',
-                                'city' => 'https://images.unsplash.com/photo-1566375638412-079492455353?w=800&q=80',
+                                'city' => 'https://images.unsplash.com/photo-1590523277543-a94d2e4eb00b?w=800&q=80',
                                 default => 'https://via.placeholder.com/800x600'
                             };
                         @endphp

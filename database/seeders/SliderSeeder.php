@@ -16,7 +16,7 @@ class SliderSeeder extends Seeder
         $sliders = [
             [
                 'title' => ['en' => 'Discover the Red Sea', 'ar' => 'اكتشف البحر الأحمر'],
-                'image_path' => 'https://images.unsplash.com/photo-1544526226-d4568090ea28?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80',
+                'image_path' => 'https://media.gettyimages.com/id/2181547667/photo/a-picture-shows-a-partial-view-of-the-egyptian-red-sea-resort-of-el-gouna-on-november-1-2024.jpg?s=612x612&w=gi&k=20&c=09x-1RviqS4nTwYMxOqIkxvqQgHutQ5BP1x50o85WLA=',
                 'link' => '/tours',
                 'order' => 1,
                 'is_active' => true,
