@@ -5,22 +5,109 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>{{ $title ?? 'Blue Lagoon Tours' }}</title>
+    <title>{{ $title ?? 'Blue Lagoon Tours - Safari & Adventure Experiences' }}</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
     @vite(['resources/css/app.css', 'resources/js/app.js'])
+
+    <style>
+        :root {
+            --safari-sand: #E8D5B5;
+            --safari-terracotta: #D4744F;
+            --safari-orange: #E89B3C;
+            --safari-forest: #2C5F4E;
+            --safari-deep-green: #1A3F34;
+            --safari-olive: #8B9556;
+            --safari-sunset: #F4A261;
+            --safari-gold: #C7A968;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-family: 'Outfit', sans-serif;
+        }
+
+        .safari-gradient {
+            background: linear-gradient(135deg, var(--safari-orange) 0%, var(--safari-terracotta) 100%);
+        }
+
+        .safari-gradient-green {
+            background: linear-gradient(135deg, var(--safari-forest) 0%, var(--safari-deep-green) 100%);
+        }
+
+        .safari-text-gradient {
+            background: linear-gradient(135deg, var(--safari-orange) 0%, var(--safari-terracotta) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .tropical-pattern {
+            background-image:
+                radial-gradient(circle at 20% 50%, rgba(232, 155, 60, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(44, 95, 78, 0.1) 0%, transparent 50%);
+        }
+
+        .leaf-decoration::before {
+            content: '🌴';
+            position: absolute;
+            opacity: 0.05;
+            font-size: 15rem;
+            transform: rotate(-15deg);
+            pointer-events: none;
+        }
+    </style>
 </head>
 
-<body class="font-sans antialiased text-gray-900 bg-gray-50">
-    <header class="bg-white shadow-sm sticky top-0 z-50">
+<body class="antialiased text-gray-900 bg-gradient-to-br from-orange-50 via-amber-50 to-emerald-50">
+    <header class="backdrop-blur-md bg-white/90 shadow-lg sticky top-0 z-50 border-b-2 border-safari-gold/30">
         <nav class="container mx-auto px-4 py-4 flex justify-between items-center">
-            <a href="/" class="text-2xl font-bold text-blue-600">Blue Lagoon</a>
-            <div class="hidden md:flex space-x-6">
-                <a href="/" class="hover:text-blue-600 font-medium">Home</a>
-                <a href="{{ route('tours.index') }}" class="hover:text-blue-600 font-medium">Tours</a>
-                <a href="{{ route('blog.index') }}" class="hover:text-blue-600 font-medium">Blog</a>
-                <a href="{{ route('contact') }}" class="hover:text-blue-600 font-medium">Contact</a>
+            <a href="/" class="text-3xl font-black tracking-tight safari-text-gradient flex items-center gap-2">
+                <span class="text-4xl">🌴</span>
+                Blue Lagoon
+            </a>
+            <div class="hidden md:flex space-x-8">
+                <a href="/"
+                    class="hover:text-safari-orange font-semibold transition-all hover:scale-105 relative group">
+                    Home
+                    <span
+                        class="absolute bottom-0 left-0 w-0 h-0.5 bg-safari-orange transition-all group-hover:w-full"></span>
+                </a>
+                <a href="{{ route('tours.index') }}"
+                    class="hover:text-safari-orange font-semibold transition-all hover:scale-105 relative group">
+                    Tours
+                    <span
+                        class="absolute bottom-0 left-0 w-0 h-0.5 bg-safari-orange transition-all group-hover:w-full"></span>
+                </a>
+                <a href="{{ route('blog.index') }}"
+                    class="hover:text-safari-orange font-semibold transition-all hover:scale-105 relative group">
+                    Blog
+                    <span
+                        class="absolute bottom-0 left-0 w-0 h-0.5 bg-safari-orange transition-all group-hover:w-full"></span>
+                </a>
+                <a href="{{ route('contact') }}"
+                    class="hover:text-safari-orange font-semibold transition-all hover:scale-105 relative group">
+                    Contact
+                    <span
+                        class="absolute bottom-0 left-0 w-0 h-0.5 bg-safari-orange transition-all group-hover:w-full"></span>
+                </a>
             </div>
             <a href="https://wa.me/201000000000" target="_blank"
-                class="bg-green-500 text-white px-6 py-2 rounded-full hover:bg-green-600 transition font-bold shadow-lg flex items-center gap-2">
+                class="safari-gradient text-white px-8 py-3 rounded-full hover:shadow-2xl transition-all font-bold shadow-lg flex items-center gap-2 transform hover:scale-105 hover:rotate-1">
                 <span>Book Now</span>
                 <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
                     <path
@@ -34,39 +121,83 @@
         {{ $slot }}
     </main>
 
-    <footer class="bg-gray-900 text-white py-12 mt-12">
-        <div class="container mx-auto px-4 grid grid-cols-1 md:grid-cols-4 gap-8">
+    <footer class="safari-gradient-green text-white py-16 mt-20 relative overflow-hidden">
+        <div class="absolute inset-0 opacity-10">
+            <div class="absolute top-10 left-10 text-9xl">🦁</div>
+            <div class="absolute bottom-10 right-10 text-9xl">🐘</div>
+            <div class="absolute top-1/2 left-1/3 text-7xl">🌿</div>
+        </div>
+
+        <div class="container mx-auto px-4 grid grid-cols-1 md:grid-cols-4 gap-12 relative z-10">
             <div>
-                <h3 class="text-xl font-bold mb-4 text-blue-400">Blue Lagoon</h3>
-                <p class="text-gray-400">Discover the beauty of Hurghada with our premium tours and activities.</p>
+                <h3 class="text-2xl font-black mb-4 text-safari-gold flex items-center gap-2">
+                    <span class="text-3xl">🌴</span>
+                    Blue Lagoon
+                </h3>
+                <p class="text-emerald-100 leading-relaxed">Discover the untamed beauty of Hurghada with our premium
+                    safari tours, island adventures, and unforgettable experiences.</p>
             </div>
             <div>
-                <h4 class="font-bold mb-4">Quick Links</h4>
-                <ul class="space-y-2 text-gray-400">
-                    <li><a href="/" class="hover:text-white">Home</a></li>
-                    <li><a href="{{ route('tours.index') }}" class="hover:text-white">Tours</a></li>
-                    <li><a href="{{ route('blog.index') }}" class="hover:text-white">Blog</a></li>
-                    <li><a href="{{ route('contact') }}" class="hover:text-white">Contact</a></li>
+                <h4 class="font-bold mb-4 text-safari-gold text-lg">Quick Links</h4>
+                <ul class="space-y-3 text-emerald-100">
+                    <li><a href="/"
+                            class="hover:text-safari-sunset transition-colors hover:translate-x-1 inline-block">→
+                            Home</a></li>
+                    <li><a href="{{ route('tours.index') }}"
+                            class="hover:text-safari-sunset transition-colors hover:translate-x-1 inline-block">→
+                            Tours</a></li>
+                    <li><a href="{{ route('blog.index') }}"
+                            class="hover:text-safari-sunset transition-colors hover:translate-x-1 inline-block">→
+                            Blog</a></li>
+                    <li><a href="{{ route('contact') }}"
+                            class="hover:text-safari-sunset transition-colors hover:translate-x-1 inline-block">→
+                            Contact</a></li>
                 </ul>
             </div>
             <div>
-                <h4 class="font-bold mb-4">Contact Us</h4>
-                <ul class="space-y-2 text-gray-400">
-                    <li>Hurghada, Red Sea, Egypt</li>
-                    <li>+20 100 000 0000</li>
-                    <li>info@bluelagon.com</li>
+                <h4 class="font-bold mb-4 text-safari-gold text-lg">Contact Us</h4>
+                <ul class="space-y-3 text-emerald-100">
+                    <li class="flex items-center gap-2">
+                        <span>📍</span>
+                        <span>Hurghada, Red Sea, Egypt</span>
+                    </li>
+                    <li class="flex items-center gap-2">
+                        <span>📞</span>
+                        <span>+20 100 000 0000</span>
+                    </li>
+                    <li class="flex items-center gap-2">
+                        <span>✉️</span>
+                        <span>info@bluelagon.com</span>
+                    </li>
                 </ul>
             </div>
             <div>
-                <h4 class="font-bold mb-4">Follow Us</h4>
+                <h4 class="font-bold mb-4 text-safari-gold text-lg">Follow Our Adventures</h4>
                 <div class="flex space-x-4">
-                    <a href="#" class="text-gray-400 hover:text-white">Facebook</a>
-                    <a href="#" class="text-gray-400 hover:text-white">Instagram</a>
+                    <a href="#"
+                        class="bg-white/20 hover:bg-safari-sunset p-3 rounded-full transition-all hover:scale-110">
+                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                            <path
+                                d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
+                        </svg>
+                    </a>
+                    <a href="#"
+                        class="bg-white/20 hover:bg-safari-sunset p-3 rounded-full transition-all hover:scale-110">
+                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                            <path
+                                d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+                        </svg>
+                    </a>
                 </div>
             </div>
         </div>
-        <div class="container mx-auto px-4 mt-8 pt-8 border-t border-gray-800 text-center text-gray-500">
-            &copy; {{ date('Y') }} Blue Lagoon Tours. All rights reserved.
+        <div
+            class="container mx-auto px-4 mt-12 pt-8 border-t border-emerald-400/30 text-center text-emerald-200 relative z-10">
+            <p class="flex items-center justify-center gap-2">
+                &copy; {{ date('Y') }} Blue Lagoon Tours. All rights reserved.
+                <span class="text-safari-gold">•</span>
+                Crafted with ❤️ for Adventure Seekers
+            </p>
         </div>
     </footer>
 </body>

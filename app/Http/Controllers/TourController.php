@@ -18,7 +18,7 @@ class TourController extends Controller
             });
         }
 
-        $tours = $query->with('category')->latest()->paginate(12);
+        $tours = $query->with(['category', 'media'])->latest()->paginate(12);
         $categories = Category::where('is_active', true)->get();
 
         return view('tours.index', compact('tours', 'categories'));
@@ -26,7 +26,7 @@ class TourController extends Controller
 
     public function show($slug)
     {
-        $tour = Tour::where('slug', $slug)->where('is_active', true)->firstOrFail();
+        $tour = Tour::with(['media', 'category'])->where('slug', $slug)->where('is_active', true)->firstOrFail();
         return view('tours.show', compact('tour'));
     }
 }

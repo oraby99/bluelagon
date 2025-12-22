@@ -14,7 +14,7 @@ class HomeController extends Controller
     {
         $sliders = Slider::where('is_active', true)->orderBy('order')->get();
         $categories = Category::where('is_active', true)->get();
-        $featuredTours = Tour::where('is_active', true)->latest()->take(6)->get();
+        $featuredTours = Tour::with(['media', 'category'])->where('is_active', true)->latest()->take(6)->get();
         $testimonials = Testimonial::where('is_active', true)->latest()->take(3)->get();
 
         return view('home', compact('sliders', 'categories', 'featuredTours', 'testimonials'));
