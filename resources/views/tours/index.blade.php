@@ -67,7 +67,7 @@
                                         <div class="absolute top-4 right-4 safari-gradient backdrop-blur-sm px-4 py-2 rounded-full text-base font-black text-white shadow-lg border-2 border-white/50">
                                             ${{ $tour->price }}
                                         </div>
-                                        <div class="absolute top-4 left-4 bg-safari-forest/90 px-3 py-1.5 rounded-full text-xs font-black text-white uppercase tracking-wider">
+                                        <div class="absolute top-4 left-4 bg-[#2a3a45]/90 px-3 py-1.5 rounded-full text-xs font-black text-white uppercase tracking-wider">
                                             {{ $tour->category->name }}
                                         </div>
                                     </div>
@@ -77,8 +77,8 @@
                                                 <svg class="w-4 h-4 text-safari-orange" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
                                                 {{ $tour->duration }}
                                             </span>
-                                            <span class="flex items-center gap-2 bg-emerald-50 px-3 py-1.5 rounded-xl font-semibold">
-                                                <svg class="w-4 h-4 text-safari-forest" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                                            <span class="flex items-center gap-2 bg-gray-100 px-3 py-1.5 rounded-xl font-semibold">
+                                                <svg class="w-4 h-4 text-[#2a3a45]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
                                                 {{ $tour->location }}
                                             </span>
                                         </div>

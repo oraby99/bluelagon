@@ -26,7 +26,7 @@
 
                         <div class="relative z-10">
                             <h2 class="text-4xl font-black mb-4 text-safari-gold">Contact Information</h2>
-                            <p class="text-emerald-100 mb-10 text-lg leading-relaxed">Ready to embark on your next
+                            <p class="text-gray-100 mb-10 text-lg leading-relaxed">Ready to embark on your next
                                 adventure? Reach out to us through any of these channels!</p>
 
                             <div class="space-y-8">
@@ -37,7 +37,7 @@
                                     </div>
                                     <div>
                                         <h3 class="font-black mb-2 text-lg text-safari-gold">Visit Us</h3>
-                                        <p class="text-emerald-100 leading-relaxed">Sheraton Road, Hurghada<br>Red Sea,
+                                        <p class="text-gray-100 leading-relaxed">Sheraton Road, Hurghada<br>Red Sea,
                                             Egypt 🇪🇬</p>
                                     </div>
                                 </div>
@@ -49,7 +49,7 @@
                                     </div>
                                     <div>
                                         <h3 class="font-black mb-2 text-lg text-safari-gold">Call Us</h3>
-                                        <p class="text-emerald-100 text-lg">+20 100 000 0000</p>
+                                        <p class="text-gray-100 text-lg">+20 100 000 0000</p>
                                     </div>
                                 </div>
 
@@ -60,7 +60,7 @@
                                     </div>
                                     <div>
                                         <h3 class="font-black mb-2 text-lg text-safari-gold">Email Us</h3>
-                                        <p class="text-emerald-100 text-lg">info@bluelagon.com</p>
+                                        <p class="text-gray-100 text-lg">info@bluelagon.com</p>
                                     </div>
                                 </div>
 
@@ -72,13 +72,13 @@
                                     <div>
                                         <h3 class="font-black mb-2 text-lg text-safari-gold">WhatsApp</h3>
                                         <a href="https://wa.me/201000000000" target="_blank"
-                                            class="text-emerald-100 text-lg hover:text-safari-sunset transition-colors">Chat
+                                            class="text-gray-100 text-lg hover:text-safari-sunset transition-colors">Chat
                                             with us instantly!</a>
                                     </div>
                                 </div>
                             </div>
 
-                            <div class="mt-12 pt-8 border-t border-emerald-400/30">
+                            <div class="mt-12 pt-8 border-t border-gray-400/30">
                                 <h3 class="font-black mb-4 text-safari-gold text-lg">Follow Our Adventures</h3>
                                 <div class="flex gap-4">
                                     <a href="#"

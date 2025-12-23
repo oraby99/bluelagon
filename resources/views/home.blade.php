@@ -7,7 +7,7 @@
                 x-transition:enter="transition ease-out duration-1000" x-transition:enter-start="opacity-0"
                 x-transition:enter-end="opacity-100" x-transition:leave="transition ease-in duration-1000"
                 x-transition:leave-start="opacity-100" x-transition:leave-end="opacity-0">
-                <div class="absolute inset-0 bg-gradient-to-br from-black/60 via-safari-deep-green/40 to-black/70 z-10">
+                <div class="absolute inset-0 bg-gradient-to-br from-black/60 via-[#151b23]/40 to-black/70 z-10">
                 </div>
                 <img src="{{ $slider->image_path }}" alt="{{ $slider->title }}"
                     class="absolute inset-0 w-full h-full object-cover scale-110 animate-slow-zoom">
@@ -84,7 +84,7 @@
                         <img src="{{ $bgImage }}" alt="{{ $category->name }}"
                             class="w-full h-full object-cover group-hover:scale-125 transition-transform duration-700">
                         <div
-                            class="absolute inset-0 bg-gradient-to-t from-black via-safari-forest/50 to-transparent flex flex-col justify-end p-8 group-hover:from-safari-deep-green transition-all duration-500">
+                            class="absolute inset-0 bg-gradient-to-t from-black via-[#2a3a45]/50 to-transparent flex flex-col justify-end p-8 group-hover:from-[#151b23] transition-all duration-500">
                             <div class="transform translate-y-4 group-hover:translate-y-0 transition-all duration-500">
                                 <div class="mb-3">
                                     <span
@@ -157,7 +157,7 @@
                                 ${{ $tour->price }}
                             </div>
                             <div
-                                class="absolute top-5 left-5 bg-safari-forest/90 backdrop-blur-sm px-4 py-2 rounded-full text-xs font-black text-white uppercase tracking-wider border border-safari-gold/50">
+                                class="absolute top-5 left-5 bg-[#2a3a45]/90 backdrop-blur-sm px-4 py-2 rounded-full text-xs font-black text-white uppercase tracking-wider border border-safari-gold/50">
                                 {{ $tour->category->name }}
                             </div>
                         </div>
@@ -171,8 +171,8 @@
                                     </svg>
                                     {{ $tour->duration }}
                                 </span>
-                                <span class="flex items-center gap-2 bg-emerald-50 px-3 py-2 rounded-xl font-semibold">
-                                    <svg class="w-5 h-5 text-safari-forest" fill="none" stroke="currentColor"
+                                <span class="flex items-center gap-2 bg-gray-100 px-3 py-2 rounded-xl font-semibold">
+                                    <svg class="w-5 h-5 text-[#2a3a45]" fill="none" stroke="currentColor"
                                         viewBox="0 0 24 24">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                             d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z">

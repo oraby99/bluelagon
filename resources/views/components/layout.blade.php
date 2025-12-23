@@ -21,8 +21,8 @@
             --safari-sand: #E8D5B5;
             --safari-terracotta: #D4744F;
             --safari-orange: #E89B3C;
-            --safari-forest: #2C5F4E;
-            --safari-deep-green: #1A3F34;
+            --safari-forest: #2a3a45;
+            --safari-deep-green: #151b23;
             --safari-olive: #8B9556;
             --safari-sunset: #F4A261;
             --safari-gold: #C7A968;
@@ -46,7 +46,7 @@
         }
 
         .safari-gradient-green {
-            background: linear-gradient(135deg, var(--safari-forest) 0%, var(--safari-deep-green) 100%);
+            background: linear-gradient(135deg, #2a3a45 0%, #151b23 100%);
         }
 
         .safari-text-gradient {
@@ -73,11 +73,11 @@
     </style>
 </head>
 
-<body class="antialiased text-gray-900 bg-gradient-to-br from-orange-50 via-amber-50 to-emerald-50">
+<body class="antialiased text-gray-900 bg-gradient-to-br from-orange-50 via-amber-50 to-gray-50">
     <header class="backdrop-blur-md bg-white/90 shadow-lg sticky top-0 z-50 border-b-2 border-safari-gold/30">
         <nav class="container mx-auto px-4 py-4 flex justify-between items-center">
             <a href="/" class="text-3xl font-black tracking-tight safari-text-gradient flex items-center gap-2">
-                <span class="text-4xl">🌴</span>
+                <img src="{{ asset('logo.jpeg') }}" alt="Blue Lagoon Logo" class="h-12 w-12 object-contain">
                 Blue Lagoon
             </a>
             <div class="hidden md:flex space-x-8">
@@ -131,15 +131,15 @@
         <div class="container mx-auto px-4 grid grid-cols-1 md:grid-cols-4 gap-12 relative z-10">
             <div>
                 <h3 class="text-2xl font-black mb-4 text-safari-gold flex items-center gap-2">
-                    <span class="text-3xl">🌴</span>
+                    <img src="{{ asset('logo.jpeg') }}" alt="Blue Lagoon Logo" class="h-8 w-8 object-contain">
                     Blue Lagoon
                 </h3>
-                <p class="text-emerald-100 leading-relaxed">Discover the untamed beauty of Hurghada with our premium
+                <p class="text-gray-100 leading-relaxed">Discover the untamed beauty of Hurghada with our premium
                     safari tours, island adventures, and unforgettable experiences.</p>
             </div>
             <div>
                 <h4 class="font-bold mb-4 text-safari-gold text-lg">Quick Links</h4>
-                <ul class="space-y-3 text-emerald-100">
+                <ul class="space-y-3 text-gray-100">
                     <li><a href="/"
                             class="hover:text-safari-sunset transition-colors hover:translate-x-1 inline-block">→
                             Home</a></li>
@@ -156,7 +156,7 @@
             </div>
             <div>
                 <h4 class="font-bold mb-4 text-safari-gold text-lg">Contact Us</h4>
-                <ul class="space-y-3 text-emerald-100">
+                <ul class="space-y-3 text-gray-100">
                     <li class="flex items-center gap-2">
                         <span>📍</span>
                         <span>Hurghada, Red Sea, Egypt</span>
@@ -192,7 +192,7 @@
             </div>
         </div>
         <div
-            class="container mx-auto px-4 mt-12 pt-8 border-t border-emerald-400/30 text-center text-emerald-200 relative z-10">
+            class="container mx-auto px-4 mt-12 pt-8 border-t border-gray-400/30 text-center text-gray-200 relative z-10">
             <p class="flex items-center justify-center gap-2">
                 &copy; {{ date('Y') }} Blue Lagoon Tours. All rights reserved.
                 <span class="text-safari-gold">•</span>
