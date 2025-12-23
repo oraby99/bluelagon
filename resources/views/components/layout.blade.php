@@ -21,9 +21,9 @@
             --safari-sand: #E8D5B5;
             --safari-terracotta: #D4744F;
             --safari-orange: #E89B3C;
-            --safari-forest: #2a3a45;
-            --safari-deep-green: #151b23;
-            --safari-olive: #8B9556;
+            --safari-forest: #D4744F;
+            --safari-deep-green: #D4744F;
+            --safari-olive: #D4744F;
             --safari-sunset: #F4A261;
             --safari-gold: #C7A968;
         }
@@ -46,7 +46,7 @@
         }
 
         .safari-gradient-green {
-            background: linear-gradient(135deg, #2a3a45 0%, #151b23 100%);
+            background: linear-gradient(135deg, #D4744F 0%, #E89B3C 100%);
         }
 
         .safari-text-gradient {
@@ -106,7 +106,7 @@
                         class="absolute bottom-0 left-0 w-0 h-0.5 bg-safari-orange transition-all group-hover:w-full"></span>
                 </a>
             </div>
-            <a href="https://wa.me/201000000000" target="_blank"
+            <a href="{{ setting('footer_whatsapp', 'https://wa.me/201000000000') }}" target="_blank"
                 class="safari-gradient text-white px-8 py-3 rounded-full hover:shadow-2xl transition-all font-bold shadow-lg flex items-center gap-2 transform hover:scale-105 hover:rotate-1">
                 <span>Book Now</span>
                 <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
@@ -159,29 +159,29 @@
                 <ul class="space-y-3 text-gray-100">
                     <li class="flex items-center gap-2">
                         <span>📍</span>
-                        <span>Hurghada, Red Sea, Egypt</span>
+                        <span>{{ setting('footer_address', 'Hurghada, Red Sea, Egypt') }}</span>
                     </li>
                     <li class="flex items-center gap-2">
                         <span>📞</span>
-                        <span>+20 100 000 0000</span>
+                        <span>{{ setting('footer_phone', '+20 100 000 0000') }}</span>
                     </li>
                     <li class="flex items-center gap-2">
                         <span>✉️</span>
-                        <span>info@bluelagon.com</span>
+                        <span>{{ setting('footer_email', 'info@bluelagon.com') }}</span>
                     </li>
                 </ul>
             </div>
             <div>
                 <h4 class="font-bold mb-4 text-safari-gold text-lg">Follow Our Adventures</h4>
                 <div class="flex space-x-4">
-                    <a href="#"
+                    <a href="{{ setting('footer_facebook', '#') }}"
                         class="bg-white/20 hover:bg-safari-sunset p-3 rounded-full transition-all hover:scale-110">
                         <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
                             <path
                                 d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
                         </svg>
                     </a>
-                    <a href="#"
+                    <a href="{{ setting('footer_instagram', '#') }}"
                         class="bg-white/20 hover:bg-safari-sunset p-3 rounded-full transition-all hover:scale-110">
                         <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
                             <path
@@ -196,7 +196,6 @@
             <p class="flex items-center justify-center gap-2">
                 &copy; {{ date('Y') }} Blue Lagoon Tours. All rights reserved.
                 <span class="text-safari-gold">•</span>
-                Crafted with ❤️ for Adventure Seekers
             </p>
         </div>
     </footer>
