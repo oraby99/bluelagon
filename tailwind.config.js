@@ -26,6 +26,13 @@ module.exports = {
           '0%': { transform: 'scale(1.1)' },
           '100%': { transform: 'scale(1.25)' },
         }
+      },
+      colors: {
+        'safari-orange': '#E89B3C',
+        'safari-gold': '#C7A968',
+        'safari-terracotta': '#D4744F',
+        'safari-sunset': '#F4A261',
+        'safari-sand': '#E8D5B5',
       }
     },
   },

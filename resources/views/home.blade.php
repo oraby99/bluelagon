@@ -25,7 +25,7 @@
                         </h1>
                         @if($slider->link)
                             <a href="{{ $slider->link }}"
-                                class="inline-block safari-gradient text-white px-12 py-5 rounded-full text-xl font-black transition-all shadow-2xl hover:shadow-safari-orange/50 transform hover:scale-110 hover:-translate-y-2 border-2 border-white/30">
+                                class="inline-block safari-gradient text-white px-6 py-3 md:px-12 md:py-5 rounded-full text-base md:text-xl font-black transition-all shadow-xl hover:shadow-safari-orange/50 transform hover:scale-105 hover:-translate-y-1 md:hover:-translate-y-2 border-2 border-white/30">
                                 <span class="flex items-center gap-3">
                                     🏝️ Explore Now
                                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -147,31 +147,39 @@
 
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 modern-card-grid">
                 @foreach($featuredTours as $tour)
-                    <a href="{{ route('tours.show', $tour->slug) }}" class="group bg-white rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1 h-full flex flex-col">
+                    <a href="{{ route('tours.show', $tour->slug) }}"
+                        class="group bg-white rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1 h-full flex flex-col">
                         <!-- Image Container -->
                         <div class="relative aspect-[4/3] overflow-hidden">
                             <img src="{{ $tour->getFirstMediaUrl('gallery') ?: 'https://images.unsplash.com/photo-1540206395-688085723adb?w=800&q=80' }}"
                                 alt="{{ $tour->name }}"
                                 class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
-                            
+
                             <!-- Overlay -->
                             <div class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent opacity-60"></div>
-                            
+
                             <!-- Category Badge -->
-                            <div class="absolute top-4 left-4 bg-white/90 backdrop-blur-md px-3 py-1.5 rounded-full text-xs font-bold text-[#2a3a45] uppercase tracking-wider shadow-sm">
+                            <div
+                                class="absolute top-4 left-4 bg-white/90 backdrop-blur-md px-3 py-1.5 rounded-full text-xs font-bold text-[#2a3a45] uppercase tracking-wider shadow-sm">
                                 {{ $tour->category->name }}
                             </div>
-                            
+
                             <!-- Price Badge -->
-                            <div class="absolute top-4 right-4 bg-gray-900/90 backdrop-blur-sm text-white px-4 py-2 rounded-full font-bold shadow-lg border border-white/20 text-sm z-10">
+                            <div
+                                class="absolute top-4 right-4 bg-gray-900/90 backdrop-blur-sm text-white px-4 py-2 rounded-full font-bold shadow-lg border border-white/20 text-sm z-10">
                                 ${{ $tour->price }}
                             </div>
 
                             <!-- Location Badge (Bottom Right) -->
-                            <div class="absolute bottom-4 right-4 bg-black/60 backdrop-blur-md text-white px-3 py-1.5 rounded-lg flex items-center gap-1.5 text-xs font-medium border border-white/10 z-10">
-                                <svg class="w-3.5 h-3.5 text-safari-orange" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                            <div
+                                class="absolute bottom-4 right-4 bg-black/60 backdrop-blur-md text-white px-3 py-1.5 rounded-lg flex items-center gap-1.5 text-xs font-medium border border-white/10 z-10">
+                                <svg class="w-3.5 h-3.5 text-safari-orange" fill="none" stroke="currentColor"
+                                    viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z">
+                                    </path>
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
                                 </svg>
                                 {{ $tour->location }}
                             </div>
@@ -180,16 +188,19 @@
                         <!-- Content -->
                         <div class="p-6 flex flex-col flex-grow">
                             <!-- Title -->
-                            <h3 class="text-xl font-bold text-gray-900 mb-2 leading-tight group-hover:text-safari-orange transition-colors line-clamp-2">
+                            <h3
+                                class="text-xl font-bold text-gray-900 mb-2 leading-tight group-hover:text-safari-orange transition-colors line-clamp-2">
                                 {{ $tour->name }}
                             </h3>
 
                             <!-- Meta Row -->
                             <div class="flex items-center gap-3 text-sm text-gray-600 mb-3">
                                 <div class="flex items-center gap-2 text-gray-500">
-                                    <svg class="w-4 h-4 text-safari-orange" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                                    </svg> 
+                                    <svg class="w-4 h-4 text-safari-orange" fill="none" stroke="currentColor"
+                                        viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                    </svg>
                                     <span class="font-medium">{{ $tour->duration }}</span>
                                 </div>
                             </div>
@@ -201,28 +212,33 @@
 
                             <!-- Footer -->
                             <div class="mt-auto pt-4 border-t border-gray-100 flex justify-between items-center">
-                                <span class="text-[#2a3a45] font-bold text-sm group-hover:text-safari-orange transition-colors">View Details</span>
-                                <div class="w-8 h-8 rounded-full bg-orange-50 flex items-center justify-center group-hover:bg-safari-orange group-hover:text-white transition-all duration-300 transform group-hover:translate-x-1">
+                                <span
+                                    class="text-[#2a3a45] font-bold text-sm group-hover:text-safari-orange transition-colors">View
+                                    Details</span>
+                                <div
+                                    class="w-8 h-8 rounded-full bg-orange-50 flex items-center justify-center group-hover:bg-safari-orange group-hover:text-white transition-all duration-300 transform group-hover:translate-x-1">
                                     <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
                                     </svg>
                                 </div>
                             </div>
                         </div>
                     </a>
                 @endforeach
-        </div>
+            </div>
 
-        <div class="mt-16 text-center md:hidden">
-            <a href="{{ route('tours.index') }}"
-                class="inline-flex items-center gap-3 safari-gradient text-white px-10 py-5 rounded-full font-black hover:shadow-2xl transition-all transform hover:scale-105">
-                View All Tours
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M17 8l4 4m0 0l-4 4m4-4H3">
-                    </path>
-                </svg>
-            </a>
-        </div>
+            <div class="mt-16 text-center md:hidden">
+                <a href="{{ route('tours.index') }}"
+                    class="inline-flex items-center gap-3 safari-gradient text-white px-10 py-5 rounded-full font-black hover:shadow-2xl transition-all transform hover:scale-105">
+                    View All Tours
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3"
+                            d="M17 8l4 4m0 0l-4 4m4-4H3">
+                        </path>
+                    </svg>
+                </a>
+            </div>
         </div>
     </section>
 

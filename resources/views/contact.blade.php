@@ -1,5 +1,5 @@
 <x-layout>
-    <div class="bg-gradient-to-br from-amber-50 via-orange-50 to-yellow-50 py-20 relative overflow-hidden">
+    <div class="bg-gradient-to-br from-amber-50 via-orange-50 to-yellow-50 py-10 md:py-20 relative overflow-hidden">
         <div class="absolute top-10 right-20 text-gray-900"><i class="fa-regular fa-envelope text-9xl opacity-5"></i>
         </div>
         <div class="absolute bottom-10 left-20 text-gray-900"><i
@@ -13,7 +13,7 @@
                         <i class="fa-regular fa-comments mr-2"></i>
                         Let's Connect</span>
                 </div>
-                <h1 class="text-5xl md:text-7xl font-black mb-6 text-gray-900">Get in Touch</h1>
+                <h1 class="text-4xl md:text-7xl font-black mb-6 text-gray-900">Get in Touch</h1>
                 <div class="w-32 h-2 safari-gradient mx-auto rounded-full mb-6"></div>
                 <p class="text-gray-700 text-xl max-w-3xl mx-auto font-medium">Have questions about our tours? Want to
                     plan your dream adventure? We're here to help make it happen!</p>
@@ -23,70 +23,74 @@
                 class="max-w-6xl mx-auto bg-white rounded-3xl shadow-2xl overflow-hidden border-2 border-safari-gold/30">
                 <div class="grid grid-cols-1 md:grid-cols-2">
                     <!-- Contact Info Sidebar -->
-                    <div class="safari-gradient-green p-12 text-white relative overflow-hidden">
+                    <div class="safari-gradient-green p-6 md:p-12 text-white relative overflow-hidden">
                         <div class="absolute top-0 right-0"><i class="fa-solid fa-tree text-9xl opacity-10"></i></div>
                         <div class="absolute bottom-0 left-0"><i class="fa-solid fa-paw text-9xl opacity-10"></i></div>
 
                         <div class="relative z-10">
-                            <h2 class="text-4xl font-black mb-4 text-safari-gold">Contact Information</h2>
+                            <h2 class="text-3xl md:text-4xl font-black mb-4 text-white">Contact Information</h2>
                             <p class="text-gray-100 mb-10 text-lg leading-relaxed">Ready to embark on your next
                                 adventure? Reach out to us through any of these channels!</p>
 
                             <div class="space-y-8">
                                 <div class="flex items-start gap-5 group">
                                     <div
-                                        class="w-14 h-14 rounded-2xl bg-safari-orange/20 flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
-                                        <span class="text-3xl text-safari-orange"><i
+                                        class="w-10 h-10 md:w-14 md:h-14 rounded-2xl bg-white/20 flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
+                                        <span class="text-xl md:text-3xl text-white"><i
                                                 class="fa-solid fa-location-dot"></i></span>
                                     </div>
                                     <div>
-                                        <h3 class="font-black mb-2 text-lg text-safari-gold">Visit Us</h3>
-                                        <p class="text-gray-100 leading-relaxed">Sheraton Road, Hurghada<br>Red Sea,
+                                        <h3 class="font-black mb-1 md:mb-2 text-base md:text-lg text-white">Visit Us
+                                        </h3>
+                                        <p class="text-gray-100 leading-relaxed text-sm md:text-base">Sheraton Road,
+                                            Hurghada<br>Red Sea,
                                             Egypt 🇪🇬</p>
                                     </div>
                                 </div>
 
                                 <div class="flex items-start gap-5 group">
                                     <div
-                                        class="w-14 h-14 rounded-2xl bg-safari-orange/20 flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
-                                        <span class="text-3xl text-safari-orange"><i
+                                        class="w-10 h-10 md:w-14 md:h-14 rounded-2xl bg-white/20 flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
+                                        <span class="text-xl md:text-3xl text-white"><i
                                                 class="fa-solid fa-phone"></i></span>
                                     </div>
                                     <div>
-                                        <h3 class="font-black mb-2 text-lg text-safari-gold">Call Us</h3>
-                                        <p class="text-gray-100 text-lg">+966 56 043 8360</p>
+                                        <h3 class="font-black mb-1 md:mb-2 text-base md:text-lg text-white">Call Us</h3>
+                                        <p class="text-gray-100 text-sm md:text-lg">+966 56 043 8360</p>
                                     </div>
                                 </div>
 
                                 <div class="flex items-start gap-5 group">
                                     <div
-                                        class="w-14 h-14 rounded-2xl bg-safari-orange/20 flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
-                                        <span class="text-3xl text-safari-orange"><i
+                                        class="w-10 h-10 md:w-14 md:h-14 rounded-2xl bg-white/20 flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
+                                        <span class="text-xl md:text-3xl text-white"><i
                                                 class="fa-solid fa-envelope"></i></span>
                                     </div>
                                     <div>
-                                        <h3 class="font-black mb-2 text-lg text-safari-gold">Email Us</h3>
-                                        <p class="text-gray-100 text-lg">info@bluelagon.com</p>
+                                        <h3 class="font-black mb-1 md:mb-2 text-base md:text-lg text-white">Email Us
+                                        </h3>
+                                        <p class="text-gray-100 text-sm md:text-lg">info@bluelagon.com</p>
                                     </div>
                                 </div>
 
                                 <div class="flex items-start gap-5 group">
                                     <div
-                                        class="w-14 h-14 rounded-2xl bg-safari-orange/20 flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
-                                        <span class="text-3xl text-safari-orange"><i
+                                        class="w-10 h-10 md:w-14 md:h-14 rounded-2xl bg-white/20 flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
+                                        <span class="text-xl md:text-3xl text-white"><i
                                                 class="fa-brands fa-whatsapp"></i></span>
                                     </div>
                                     <div>
-                                        <h3 class="font-black mb-2 text-lg text-safari-gold">WhatsApp</h3>
+                                        <h3 class="font-black mb-1 md:mb-2 text-base md:text-lg text-white">WhatsApp
+                                        </h3>
                                         <a href="https://wa.me/966560438360" target="_blank"
-                                            class="text-gray-100 text-lg hover:text-safari-sunset transition-colors">Chat
+                                            class="text-gray-100 text-sm md:text-lg hover:text-white transition-colors">Chat
                                             with us instantly!</a>
                                     </div>
                                 </div>
                             </div>
 
                             <div class="mt-12 pt-8 border-t border-gray-400/30">
-                                <h3 class="font-black mb-4 text-safari-gold text-lg">Follow Our Adventures</h3>
+                                <h3 class="font-black mb-4 text-white text-lg">Follow Our Adventures</h3>
                                 <div class="flex gap-4">
                                     <a href="https://www.facebook.com/share/19NUYSDnGT/?mibextid=wwXIfr" target="_blank"
                                         class="w-12 h-12 rounded-xl bg-white/20 hover:bg-safari-sunset flex items-center justify-center transition-all hover:scale-110 text-2xl text-white">
@@ -108,9 +112,9 @@
                     </div>
 
                     <!-- Contact Form -->
-                    <div class="p-12 bg-gradient-to-br from-orange-50/30 to-amber-50/30">
+                    <div class="p-6 md:p-12 bg-gradient-to-br from-orange-50/30 to-amber-50/30">
                         <div class="mb-8">
-                            <h3 class="text-3xl font-black text-gray-900 mb-2">Send us a Message</h3>
+                            <h3 class="text-2xl md:text-3xl font-black text-gray-900 mb-2">Send us a Message</h3>
                             <p class="text-gray-600">Fill out the form below and we'll get back to you as soon as
                                 possible.</p>
                         </div>
@@ -143,7 +147,7 @@
                                     <i class="fa-solid fa-phone text-safari-orange"></i> Phone Number (Optional)
                                 </label>
                                 <input type="tel" id="phone" name="phone"
-                                    class="w-full px-5 py-4 rounded-2xl border-2 border-gray-200 focus:border-safari-orange focus:ring-4 focus:ring-safari-orange/20 outline-none transition font-semibold"
+                                    class="w-full px-4 py-3 md:px-5 md:py-4 rounded-2xl border-2 border-gray-200 focus:border-safari-orange focus:ring-4 focus:ring-safari-orange/20 outline-none transition font-semibold"
                                     placeholder="+20 100 000 0000">
                             </div>
 
@@ -159,7 +163,7 @@
 
                             <button type="button"
                                 onclick="alert('Thank you for your message! 🎉 We will contact you soon to help plan your adventure!')"
-                                class="w-full safari-gradient text-white font-black py-5 rounded-2xl transition-all shadow-xl hover:shadow-2xl transform hover:scale-105 text-lg flex items-center justify-center gap-3">
+                                class="w-full bg-safari-orange safari-gradient text-white font-black py-3 md:py-5 rounded-2xl transition-all shadow-xl hover:shadow-2xl transform hover:scale-105 text-base md:text-lg flex items-center justify-center gap-3 relative z-10">
                                 <span>Send Message</span>
                                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3"
@@ -174,9 +178,9 @@
             </div>
 
             <!-- Additional Info Cards -->
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-16">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 mt-12 md:mt-16">
                 <div
-                    class="bg-white rounded-3xl p-8 shadow-xl text-center border-2 border-safari-gold/20 hover:shadow-2xl transition-all transform hover:-translate-y-2">
+                    class="bg-white rounded-3xl p-6 md:p-8 shadow-xl text-center border-2 border-safari-gold/20 hover:shadow-2xl transition-all transform hover:-translate-y-2">
                     <div
                         class="w-20 h-20 safari-gradient rounded-2xl flex items-center justify-center mx-auto mb-6 text-4xl shadow-lg text-white">
                         <i class="fa-regular fa-clock"></i>
@@ -186,7 +190,7 @@
                 </div>
 
                 <div
-                    class="bg-white rounded-3xl p-8 shadow-xl text-center border-2 border-safari-gold/20 hover:shadow-2xl transition-all transform hover:-translate-y-2">
+                    class="bg-white rounded-3xl p-6 md:p-8 shadow-xl text-center border-2 border-safari-gold/20 hover:shadow-2xl transition-all transform hover:-translate-y-2">
                     <div
                         class="w-20 h-20 safari-gradient rounded-2xl flex items-center justify-center mx-auto mb-6 text-4xl shadow-lg text-white">
                         <i class="fa-solid fa-globe"></i>
@@ -196,7 +200,7 @@
                 </div>
 
                 <div
-                    class="bg-white rounded-3xl p-8 shadow-xl text-center border-2 border-safari-gold/20 hover:shadow-2xl transition-all transform hover:-translate-y-2">
+                    class="bg-white rounded-3xl p-6 md:p-8 shadow-xl text-center border-2 border-safari-gold/20 hover:shadow-2xl transition-all transform hover:-translate-y-2">
                     <div
                         class="w-20 h-20 safari-gradient rounded-2xl flex items-center justify-center mx-auto mb-6 text-4xl shadow-lg text-white">
                         <i class="fa-solid fa-bullseye"></i>

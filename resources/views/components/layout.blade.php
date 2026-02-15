@@ -77,7 +77,7 @@
     </style>
 </head>
 
-<body class="antialiased text-gray-900 bg-gradient-to-br from-orange-50 via-amber-50 to-gray-50">
+<body class="antialiased text-gray-900 bg-gradient-to-br from-orange-50 via-amber-50 to-gray-50 pb-20 md:pb-0">
     <header class="backdrop-blur-md bg-white/90 shadow-lg sticky top-0 z-50 border-b-2 border-safari-gold/30">
         <nav class="container mx-auto py-4 flex justify-between items-center">
             <a href="/"
@@ -113,8 +113,8 @@
                 </a>
             </div>
             <a href="{{ setting('footer_whatsapp', 'https://wa.me/201000000000') }}" target="_blank"
-                class="safari-gradient text-white px-4 py-2 md:px-8 md:py-3 rounded-full hover:shadow-2xl transition-all font-bold shadow-lg flex items-center gap-1.5 md:gap-2 transform hover:scale-105 hover:rotate-1 text-xs md:text-base whitespace-nowrap">
-                <span>Book<span class="hidden sm:inline"> Now</span></span>
+                class="hidden md:flex safari-gradient text-white px-3 py-1.5 md:px-8 md:py-3 rounded-full hover:shadow-2xl transition-all font-bold shadow-md items-center gap-1.5 md:gap-2 transform hover:scale-105 hover:rotate-1 text-[10px] md:text-base whitespace-nowrap border border-white/20">
+                <span>Book Now</span>
                 <svg class="w-3.5 h-3.5 md:w-5 md:h-5" fill="currentColor" viewBox="0 0 24 24">
                     <path
                         d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z" />
@@ -134,9 +134,10 @@
             <div class="absolute top-1/2 left-1/3 text-7xl">🌿</div>
         </div>
 
-        <div class="container mx-auto px-4 grid grid-cols-1 lg:grid-cols-5 gap-12 relative z-10">
-            <div class="lg:col-span-2">
-                <h3 class="text-2xl font-black mb-4 text-safari-gold flex flex-col items-start gap-4">
+        <div
+            class="container mx-auto px-4 grid grid-cols-1 lg:grid-cols-5 gap-8 md:gap-12 relative z-10 text-center md:text-left">
+            <div class="lg:col-span-2 flex flex-col items-center md:items-start">
+                <h3 class="text-2xl font-black mb-4 text-white flex flex-col items-center md:items-start gap-4">
                     <img src="{{ asset('logo.png') }}" alt="Blue Lagoon Logo" class="h-24 w-auto object-contain">
                     Blue Lagoon
                 </h3>
@@ -144,7 +145,7 @@
                     safari tours, island adventures, and unforgettable experiences.</p>
             </div>
             <div>
-                <h4 class="font-bold mb-4 text-safari-gold text-lg">Quick Links</h4>
+                <h4 class="font-bold mb-4 text-white text-lg">Quick Links</h4>
                 <ul class="space-y-3 text-gray-100">
                     <li><a href="/"
                             class="hover:text-safari-sunset transition-colors hover:translate-x-1 inline-block">→
@@ -161,25 +162,25 @@
                 </ul>
             </div>
             <div>
-                <h4 class="font-bold mb-4 text-safari-gold text-lg">Contact Us</h4>
+                <h4 class="font-bold mb-4 text-white text-lg">Contact Us</h4>
                 <ul class="space-y-3 text-gray-100">
-                    <li class="flex items-start gap-3">
-                        <i class="fa-solid fa-location-dot text-safari-gold mt-1"></i>
+                    <li class="flex items-start justify-center md:justify-start gap-3">
+                        <i class="fa-solid fa-location-dot text-white mt-1"></i>
                         <span>{{ setting('footer_address', 'Hurghada, Red Sea, Egypt') }}</span>
                     </li>
-                    <li class="flex items-center gap-3">
-                        <i class="fa-solid fa-phone text-safari-gold"></i>
+                    <li class="flex items-center justify-center md:justify-start gap-3">
+                        <i class="fa-solid fa-phone text-white"></i>
                         <span>{{ setting('footer_phone', '+966 56 043 8360') }}</span>
                     </li>
-                    <li class="flex items-center gap-3">
-                        <i class="fa-solid fa-envelope text-safari-gold"></i>
+                    <li class="flex items-center justify-center md:justify-start gap-3">
+                        <i class="fa-solid fa-envelope text-white"></i>
                         <span>{{ setting('footer_email', 'info@bluelagon.com') }}</span>
                     </li>
                 </ul>
             </div>
             <div>
-                <h4 class="font-bold mb-4 text-safari-gold text-lg">Follow Our Adventures</h4>
-                <div class="flex space-x-4">
+                <h4 class="font-bold mb-4 text-white text-lg">Follow Our Adventures</h4>
+                <div class="flex space-x-4 justify-center md:justify-start">
                     <a href="{{ setting('footer_facebook', 'https://www.facebook.com/share/19NUYSDnGT/?mibextid=wwXIfr') }}"
                         target="_blank"
                         class="bg-white/20 hover:bg-safari-sunset p-3 rounded-full transition-all hover:scale-110 text-white flex items-center justify-center w-10 h-10">
@@ -201,14 +202,51 @@
         </div>
         <div
             class="container mx-auto px-4 mt-12 pt-8 border-t border-gray-400/30 text-center text-gray-200 relative z-10">
-            <p class="flex items-center justify-center gap-2">
-                &copy; {{ date('Y') }} Blue Lagoon Tours. All rights reserved || powered by <a
-                    href="https://wa.me/971562384066" target="_blank"
-                    class="hover:text-safari-gold transition-colors">TeraTronics</a>.
-                <span class="text-safari-gold">•</span>
+            <p class="flex flex-col md:flex-row items-center justify-center gap-2 text-sm md:text-base">
+                <span>&copy; {{ date('Y') }} Blue Lagoon Tours. All rights reserved</span>
+                <span class="hidden md:inline">||</span>
+                <span class="flex items-center gap-1">
+                    powered by <a href="https://wa.me/971562384066" target="_blank"
+                        class="hover:text-safari-gold transition-colors font-bold">TeraTronics</a>
+                    <span class="text-safari-gold">•</span>
+                </span>
             </p>
         </div>
     </footer>
+
+    <!-- Mobile Bottom Navigation -->
+    <div
+        class="fixed bottom-0 left-0 right-0 bg-white/95 backdrop-blur-md border-t border-gray-200 z-50 md:hidden pb-safe">
+        <div class="flex justify-around items-center h-16">
+            <a href="/"
+                class="flex flex-col items-center justify-center w-full h-full text-gray-500 hover:text-safari-orange {{ request()->is('/') ? 'text-safari-orange' : '' }}">
+                <i class="fa-solid fa-home text-xl mb-1"></i>
+                <span class="text-[10px] font-medium">Home</span>
+            </a>
+            <a href="{{ route('tours.index') }}"
+                class="flex flex-col items-center justify-center w-full h-full text-gray-500 hover:text-safari-orange {{ request()->routeIs('tours.*') ? 'text-safari-orange' : '' }}">
+                <i class="fa-solid fa-map-location-dot text-xl mb-1"></i>
+                <span class="text-[10px] font-medium">Tours</span>
+            </a>
+            <div class="relative w-full flex flex-col items-center justify-end h-full pb-1">
+                <a href="{{ setting('footer_whatsapp', 'https://wa.me/966560438360') }}" target="_blank"
+                    class="absolute -top-6 bg-safari-orange text-white rounded-full w-14 h-14 flex items-center justify-center shadow-lg border-4 border-white transform transition-transform hover:scale-110 z-50">
+                    <i class="fa-brands fa-whatsapp text-3xl"></i>
+                </a>
+                <span class="text-[10px] font-bold text-safari-orange">Book</span>
+            </div>
+            <a href="{{ route('blog.index') }}"
+                class="flex flex-col items-center justify-center w-full h-full text-gray-500 hover:text-safari-orange {{ request()->routeIs('blog.*') ? 'text-safari-orange' : '' }}">
+                <i class="fa-regular fa-newspaper text-xl mb-1"></i>
+                <span class="text-[10px] font-medium">Blog</span>
+            </a>
+            <a href="{{ route('contact') }}"
+                class="flex flex-col items-center justify-center w-full h-full text-gray-500 hover:text-safari-orange {{ request()->routeIs('contact') ? 'text-safari-orange' : '' }}">
+                <i class="fa-solid fa-envelope text-xl mb-1"></i>
+                <span class="text-[10px] font-medium">Contact</span>
+            </a>
+        </div>
+    </div>
 </body>
 
 </html>
