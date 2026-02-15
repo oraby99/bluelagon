@@ -1,6 +1,7 @@
 <x-layout>
     <!-- Hero Section -->
-    <div class="relative h-[700px] overflow-hidden" x-data="{ activeSlide: 0, slides: {{ $sliders->count() }} }"
+    <div class="relative h-screen min-h-[600px] overflow-hidden"
+        x-data="{ activeSlide: 0, slides: {{ $sliders->count() }} }"
         x-init="setInterval(() => { activeSlide = activeSlide === slides - 1 ? 0 : activeSlide + 1 }, 5000)">
         @foreach($sliders as $index => $slider)
             <div class="absolute inset-0 transition-opacity duration-1000 ease-in-out" x-show="activeSlide === {{ $index }}"
@@ -9,7 +10,7 @@
                 x-transition:leave-start="opacity-100" x-transition:leave-end="opacity-0">
                 <div class="absolute inset-0 bg-gradient-to-br from-black/60 via-[#151b23]/40 to-black/70 z-10">
                 </div>
-                <img src="{{ $slider->image_path }}" alt="{{ $slider->title }}"
+                <img src="{{ Storage::url($slider->image_path) }}" alt="{{ $slider->title }}"
                     class="absolute inset-0 w-full h-full object-cover scale-110 animate-slow-zoom">
                 <div class="relative z-20 h-full flex items-center justify-center text-center px-4">
                     <div class="max-w-5xl mx-auto">
@@ -18,7 +19,7 @@
                             <span class="text-safari-gold font-bold tracking-wider text-sm uppercase">✨ Premium Adventure
                                 Experience</span>
                         </div>
-                        <h1 class="text-6xl md:text-8xl font-black text-white mb-6 drop-shadow-2xl tracking-tight leading-none"
+                        <h1 class="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-black text-white mb-4 md:mb-6 drop-shadow-2xl tracking-tight leading-none break-words"
                             style="text-shadow: 0 4px 20px rgba(0,0,0,0.5), 0 0 40px rgba(232,155,60,0.3);">
                             {{ $slider->title }}
                         </h1>
@@ -53,22 +54,23 @@
     <!-- Categories Section -->
     <section
         class="py-24 bg-gradient-to-br from-amber-50 via-orange-50 to-yellow-50 relative overflow-hidden tropical-pattern">
-        <div class="absolute top-20 right-10 text-9xl opacity-5">🦒</div>
-        <div class="absolute bottom-20 left-10 text-9xl opacity-5">🌺</div>
+        <div class="absolute top-20 right-10 text-9xl opacity-5 bg-scrub">🦒</div>
+        <div class="absolute bottom-20 left-10 text-9xl opacity-5 bg-scrub">🌺</div>
 
         <div class="container mx-auto px-4 relative z-10">
             <div class="text-center mb-20">
                 <div class="inline-block mb-4">
                     <span class="text-safari-orange text-6xl">🌍</span>
                 </div>
-                <h2 class="text-5xl md:text-6xl font-black mb-6 text-gray-900">Choose Your Adventure</h2>
+                <h2 class="text-3xl md:text-5xl lg:text-6xl font-black mb-6 text-gray-900 break-words">Choose Your
+                    Adventure</h2>
                 <div class="w-32 h-2 safari-gradient mx-auto rounded-full mb-6 shadow-lg"></div>
                 <p class="text-gray-700 max-w-3xl mx-auto text-xl font-medium leading-relaxed">
                     From pristine islands to thrilling safaris, discover experiences that will ignite your wanderlust.
                 </p>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 modern-card-grid">
                 @foreach($categories as $category)
                     <a href="{{ route('tours.index', ['category' => $category->slug]) }}"
                         class="group relative overflow-hidden rounded-3xl shadow-2xl cursor-pointer h-96 block transform transition-all duration-500 hover:scale-105 hover:rotate-1 hover:shadow-safari-orange/30">
@@ -126,7 +128,9 @@
                             class="px-5 py-2 bg-safari-orange/20 border-2 border-safari-orange rounded-full text-safari-terracotta font-bold tracking-wider text-sm uppercase">⭐
                             Most Popular</span>
                     </div>
-                    <h2 class="text-5xl md:text-6xl font-black mb-6 text-gray-900">Unforgettable Journeys</h2>
+                    <h2
+                        class="text-3xl sm:text-4xl md:text-6xl font-black mb-6 text-gray-900 leading-tight break-words">
+                        Unforgettable Journeys</h2>
                     <div class="w-28 h-2 safari-gradient rounded-full mb-6"></div>
                     <p class="text-gray-700 text-xl font-medium leading-relaxed">Handpicked adventures that our
                         travelers can't stop raving about.</p>
@@ -141,74 +145,84 @@
                 </a>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 modern-card-grid">
                 @foreach($featuredTours as $tour)
-                    <div
-                        class="bg-white rounded-3xl shadow-xl overflow-hidden group hover:shadow-2xl transition-all duration-500 border-2 border-safari-gold/20 transform hover:-translate-y-3">
-                        <div class="relative h-72 overflow-hidden">
+                    <a href="{{ route('tours.show', $tour->slug) }}" class="group bg-white rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1 h-full flex flex-col">
+                        <!-- Image Container -->
+                        <div class="relative aspect-[4/3] overflow-hidden">
                             <img src="{{ $tour->getFirstMediaUrl('gallery') ?: 'https://images.unsplash.com/photo-1540206395-688085723adb?w=800&q=80' }}"
                                 alt="{{ $tour->name }}"
-                                class="w-full h-full object-cover group-hover:scale-125 transition-transform duration-700">
-                            <div
-                                class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                            </div>
-                            <div
-                                class="absolute top-5 right-5 safari-gradient backdrop-blur-md px-5 py-2.5 rounded-full text-lg font-black text-white shadow-2xl border-2 border-white/50 transform group-hover:scale-110 transition-transform">
-                                ${{ $tour->price }}
-                            </div>
-                            <div
-                                class="absolute top-5 left-5 bg-[#2a3a45]/90 backdrop-blur-sm px-4 py-2 rounded-full text-xs font-black text-white uppercase tracking-wider border border-safari-gold/50">
+                                class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                            
+                            <!-- Overlay -->
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent opacity-60"></div>
+                            
+                            <!-- Category Badge -->
+                            <div class="absolute top-4 left-4 bg-white/90 backdrop-blur-md px-3 py-1.5 rounded-full text-xs font-bold text-[#2a3a45] uppercase tracking-wider shadow-sm">
                                 {{ $tour->category->name }}
                             </div>
-                        </div>
-                        <div class="p-8">
-                            <div class="flex items-center gap-6 text-sm text-gray-600 mb-5">
-                                <span class="flex items-center gap-2 bg-orange-50 px-3 py-2 rounded-xl font-semibold">
-                                    <svg class="w-5 h-5 text-safari-orange" fill="none" stroke="currentColor"
-                                        viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                            d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                                    </svg>
-                                    {{ $tour->duration }}
-                                </span>
-                                <span class="flex items-center gap-2 bg-gray-100 px-3 py-2 rounded-xl font-semibold">
-                                    <svg class="w-5 h-5 text-[#2a3a45]" fill="none" stroke="currentColor"
-                                        viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                            d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z">
-                                        </path>
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                            d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
-                                    </svg>
-                                    {{ $tour->location }}
-                                </span>
+                            
+                            <!-- Price Badge -->
+                            <div class="absolute top-4 right-4 bg-gray-900/90 backdrop-blur-sm text-white px-4 py-2 rounded-full font-bold shadow-lg border border-white/20 text-sm z-10">
+                                ${{ $tour->price }}
                             </div>
-                            <h3
-                                class="text-2xl font-black mb-4 line-clamp-1 group-hover:text-safari-orange transition-colors">
+
+                            <!-- Location Badge (Bottom Right) -->
+                            <div class="absolute bottom-4 right-4 bg-black/60 backdrop-blur-md text-white px-3 py-1.5 rounded-lg flex items-center gap-1.5 text-xs font-medium border border-white/10 z-10">
+                                <svg class="w-3.5 h-3.5 text-safari-orange" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                                </svg>
+                                {{ $tour->location }}
+                            </div>
+                        </div>
+
+                        <!-- Content -->
+                        <div class="p-6 flex flex-col flex-grow">
+                            <!-- Title -->
+                            <h3 class="text-xl font-bold text-gray-900 mb-2 leading-tight group-hover:text-safari-orange transition-colors line-clamp-2">
                                 {{ $tour->name }}
                             </h3>
-                            <p class="text-gray-600 mb-8 line-clamp-2 text-base leading-relaxed">
-                                {{ Str::limit(strip_tags($tour->description), 100) }}
-                            </p>
-                            <a href="{{ route('tours.show', $tour->slug) }}"
-                                class="block w-full safari-gradient text-white text-center py-4 rounded-2xl font-black transition-all duration-300 shadow-lg hover:shadow-2xl transform hover:scale-105">
-                                View Details →
-                            </a>
-                        </div>
-                    </div>
-                @endforeach
-            </div>
 
-            <div class="mt-16 text-center md:hidden">
-                <a href="{{ route('tours.index') }}"
-                    class="inline-flex items-center gap-3 safari-gradient text-white px-10 py-5 rounded-full font-black hover:shadow-2xl transition-all transform hover:scale-105">
-                    View All Tours
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3"
-                            d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
-                    </svg>
-                </a>
-            </div>
+                            <!-- Meta Row -->
+                            <div class="flex items-center gap-3 text-sm text-gray-600 mb-3">
+                                <div class="flex items-center gap-2 text-gray-500">
+                                    <svg class="w-4 h-4 text-safari-orange" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                    </svg> 
+                                    <span class="font-medium">{{ $tour->duration }}</span>
+                                </div>
+                            </div>
+
+                            <!-- Description -->
+                            <p class="text-gray-500 text-sm line-clamp-2 mb-4 flex-grow">
+                                {{ Str::limit(strip_tags($tour->description), 80) }}
+                            </p>
+
+                            <!-- Footer -->
+                            <div class="mt-auto pt-4 border-t border-gray-100 flex justify-between items-center">
+                                <span class="text-[#2a3a45] font-bold text-sm group-hover:text-safari-orange transition-colors">View Details</span>
+                                <div class="w-8 h-8 rounded-full bg-orange-50 flex items-center justify-center group-hover:bg-safari-orange group-hover:text-white transition-all duration-300 transform group-hover:translate-x-1">
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                @endforeach
+        </div>
+
+        <div class="mt-16 text-center md:hidden">
+            <a href="{{ route('tours.index') }}"
+                class="inline-flex items-center gap-3 safari-gradient text-white px-10 py-5 rounded-full font-black hover:shadow-2xl transition-all transform hover:scale-105">
+                View All Tours
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M17 8l4 4m0 0l-4 4m4-4H3">
+                    </path>
+                </svg>
+            </a>
+        </div>
         </div>
     </section>
 

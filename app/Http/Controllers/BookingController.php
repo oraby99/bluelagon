@@ -53,7 +53,7 @@ class BookingController extends Controller
             "Name: {$validated['user_name']}\n" .
             "Pickup: " . ($validated['pickup_location'] ?? 'Not specified');
 
-        $whatsappUrl = "https://wa.me/201000000000?text=" . urlencode($message);
+        $whatsappUrl = "https://wa.me/966560438360?text=" . urlencode($message);
 
         return response()->json([
             'success' => true,

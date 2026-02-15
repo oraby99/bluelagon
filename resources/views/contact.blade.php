@@ -1,13 +1,16 @@
 <x-layout>
     <div class="bg-gradient-to-br from-amber-50 via-orange-50 to-yellow-50 py-20 relative overflow-hidden">
-        <div class="absolute top-10 right-20 text-9xl opacity-5">📧</div>
-        <div class="absolute bottom-10 left-20 text-9xl opacity-5">🌍</div>
+        <div class="absolute top-10 right-20 text-gray-900"><i class="fa-regular fa-envelope text-9xl opacity-5"></i>
+        </div>
+        <div class="absolute bottom-10 left-20 text-gray-900"><i
+                class="fa-solid fa-earth-africa text-9xl opacity-5"></i></div>
 
         <div class="container mx-auto px-4 relative z-10">
             <div class="text-center mb-12">
                 <div class="inline-block mb-4">
                     <span
-                        class="px-5 py-2 bg-safari-orange/20 border-2 border-safari-orange rounded-full text-safari-terracotta font-bold tracking-wider text-sm uppercase">💬
+                        class="px-5 py-2 bg-safari-orange/20 border-2 border-safari-orange rounded-full text-safari-terracotta font-bold tracking-wider text-sm uppercase">
+                        <i class="fa-regular fa-comments mr-2"></i>
                         Let's Connect</span>
                 </div>
                 <h1 class="text-5xl md:text-7xl font-black mb-6 text-gray-900">Get in Touch</h1>
@@ -21,8 +24,8 @@
                 <div class="grid grid-cols-1 md:grid-cols-2">
                     <!-- Contact Info Sidebar -->
                     <div class="safari-gradient-green p-12 text-white relative overflow-hidden">
-                        <div class="absolute top-0 right-0 text-9xl opacity-10">🌴</div>
-                        <div class="absolute bottom-0 left-0 text-9xl opacity-10">🦁</div>
+                        <div class="absolute top-0 right-0"><i class="fa-solid fa-tree text-9xl opacity-10"></i></div>
+                        <div class="absolute bottom-0 left-0"><i class="fa-solid fa-paw text-9xl opacity-10"></i></div>
 
                         <div class="relative z-10">
                             <h2 class="text-4xl font-black mb-4 text-safari-gold">Contact Information</h2>
@@ -33,7 +36,8 @@
                                 <div class="flex items-start gap-5 group">
                                     <div
                                         class="w-14 h-14 rounded-2xl bg-safari-orange/20 flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
-                                        <span class="text-3xl">📍</span>
+                                        <span class="text-3xl text-safari-orange"><i
+                                                class="fa-solid fa-location-dot"></i></span>
                                     </div>
                                     <div>
                                         <h3 class="font-black mb-2 text-lg text-safari-gold">Visit Us</h3>
@@ -45,18 +49,20 @@
                                 <div class="flex items-start gap-5 group">
                                     <div
                                         class="w-14 h-14 rounded-2xl bg-safari-orange/20 flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
-                                        <span class="text-3xl">📞</span>
+                                        <span class="text-3xl text-safari-orange"><i
+                                                class="fa-solid fa-phone"></i></span>
                                     </div>
                                     <div>
                                         <h3 class="font-black mb-2 text-lg text-safari-gold">Call Us</h3>
-                                        <p class="text-gray-100 text-lg">+20 100 000 0000</p>
+                                        <p class="text-gray-100 text-lg">+966 56 043 8360</p>
                                     </div>
                                 </div>
 
                                 <div class="flex items-start gap-5 group">
                                     <div
                                         class="w-14 h-14 rounded-2xl bg-safari-orange/20 flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
-                                        <span class="text-3xl">✉️</span>
+                                        <span class="text-3xl text-safari-orange"><i
+                                                class="fa-solid fa-envelope"></i></span>
                                     </div>
                                     <div>
                                         <h3 class="font-black mb-2 text-lg text-safari-gold">Email Us</h3>
@@ -67,11 +73,12 @@
                                 <div class="flex items-start gap-5 group">
                                     <div
                                         class="w-14 h-14 rounded-2xl bg-safari-orange/20 flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
-                                        <span class="text-3xl">💬</span>
+                                        <span class="text-3xl text-safari-orange"><i
+                                                class="fa-brands fa-whatsapp"></i></span>
                                     </div>
                                     <div>
                                         <h3 class="font-black mb-2 text-lg text-safari-gold">WhatsApp</h3>
-                                        <a href="https://wa.me/201000000000" target="_blank"
+                                        <a href="https://wa.me/966560438360" target="_blank"
                                             class="text-gray-100 text-lg hover:text-safari-sunset transition-colors">Chat
                                             with us instantly!</a>
                                     </div>
@@ -81,17 +88,19 @@
                             <div class="mt-12 pt-8 border-t border-gray-400/30">
                                 <h3 class="font-black mb-4 text-safari-gold text-lg">Follow Our Adventures</h3>
                                 <div class="flex gap-4">
-                                    <a href="#"
-                                        class="w-12 h-12 rounded-xl bg-white/20 hover:bg-safari-sunset flex items-center justify-center transition-all hover:scale-110 text-2xl">
-                                        📘
+                                    <a href="https://www.facebook.com/share/19NUYSDnGT/?mibextid=wwXIfr" target="_blank"
+                                        class="w-12 h-12 rounded-xl bg-white/20 hover:bg-safari-sunset flex items-center justify-center transition-all hover:scale-110 text-2xl text-white">
+                                        <i class="fa-brands fa-facebook-f"></i>
                                     </a>
-                                    <a href="#"
-                                        class="w-12 h-12 rounded-xl bg-white/20 hover:bg-safari-sunset flex items-center justify-center transition-all hover:scale-110 text-2xl">
-                                        📸
+                                    <a href="https://www.instagram.com/bluel_agoontours?igsh=MTR2YWw1cGtuZ3o1OQ%3D%3D&utm_source=qr"
+                                        target="_blank"
+                                        class="w-12 h-12 rounded-xl bg-white/20 hover:bg-safari-sunset flex items-center justify-center transition-all hover:scale-110 text-2xl text-white">
+                                        <i class="fa-brands fa-instagram"></i>
                                     </a>
-                                    <a href="#"
-                                        class="w-12 h-12 rounded-xl bg-white/20 hover:bg-safari-sunset flex items-center justify-center transition-all hover:scale-110 text-2xl">
-                                        🐦
+                                    <a href="https://www.tiktok.com/@blue_lagoon.tours?_r=1&_t=ZS-93nl9P89TRn"
+                                        target="_blank"
+                                        class="w-12 h-12 rounded-xl bg-white/20 hover:bg-safari-sunset flex items-center justify-center transition-all hover:scale-110 text-2xl text-white">
+                                        <i class="fa-brands fa-tiktok"></i>
                                     </a>
                                 </div>
                             </div>
@@ -111,7 +120,7 @@
                             <div>
                                 <label for="name"
                                     class="block text-sm font-black text-gray-800 mb-2 flex items-center gap-2">
-                                    <span>👤</span> Your Name
+                                    <i class="fa-regular fa-user text-safari-orange"></i> Your Name
                                 </label>
                                 <input type="text" id="name" name="name" required
                                     class="w-full px-5 py-4 rounded-2xl border-2 border-gray-200 focus:border-safari-orange focus:ring-4 focus:ring-safari-orange/20 outline-none transition font-semibold"
@@ -121,7 +130,7 @@
                             <div>
                                 <label for="email"
                                     class="block text-sm font-black text-gray-800 mb-2 flex items-center gap-2">
-                                    <span>📧</span> Email Address
+                                    <i class="fa-regular fa-envelope text-safari-orange"></i> Email Address
                                 </label>
                                 <input type="email" id="email" name="email" required
                                     class="w-full px-5 py-4 rounded-2xl border-2 border-gray-200 focus:border-safari-orange focus:ring-4 focus:ring-safari-orange/20 outline-none transition font-semibold"
@@ -131,7 +140,7 @@
                             <div>
                                 <label for="phone"
                                     class="block text-sm font-black text-gray-800 mb-2 flex items-center gap-2">
-                                    <span>📱</span> Phone Number (Optional)
+                                    <i class="fa-solid fa-phone text-safari-orange"></i> Phone Number (Optional)
                                 </label>
                                 <input type="tel" id="phone" name="phone"
                                     class="w-full px-5 py-4 rounded-2xl border-2 border-gray-200 focus:border-safari-orange focus:ring-4 focus:ring-safari-orange/20 outline-none transition font-semibold"
@@ -141,7 +150,7 @@
                             <div>
                                 <label for="message"
                                     class="block text-sm font-black text-gray-800 mb-2 flex items-center gap-2">
-                                    <span>💭</span> Your Message
+                                    <i class="fa-regular fa-comment-dots text-safari-orange"></i> Your Message
                                 </label>
                                 <textarea id="message" name="message" rows="5" required
                                     class="w-full px-5 py-4 rounded-2xl border-2 border-gray-200 focus:border-safari-orange focus:ring-4 focus:ring-safari-orange/20 outline-none transition font-semibold resize-none"
@@ -169,8 +178,8 @@
                 <div
                     class="bg-white rounded-3xl p-8 shadow-xl text-center border-2 border-safari-gold/20 hover:shadow-2xl transition-all transform hover:-translate-y-2">
                     <div
-                        class="w-20 h-20 safari-gradient rounded-2xl flex items-center justify-center mx-auto mb-6 text-4xl shadow-lg">
-                        ⏰
+                        class="w-20 h-20 safari-gradient rounded-2xl flex items-center justify-center mx-auto mb-6 text-4xl shadow-lg text-white">
+                        <i class="fa-regular fa-clock"></i>
                     </div>
                     <h3 class="text-xl font-black text-gray-900 mb-3">Opening Hours</h3>
                     <p class="text-gray-600 font-medium">Sunday - Thursday<br>9:00 AM - 6:00 PM</p>
@@ -179,8 +188,8 @@
                 <div
                     class="bg-white rounded-3xl p-8 shadow-xl text-center border-2 border-safari-gold/20 hover:shadow-2xl transition-all transform hover:-translate-y-2">
                     <div
-                        class="w-20 h-20 safari-gradient rounded-2xl flex items-center justify-center mx-auto mb-6 text-4xl shadow-lg">
-                        🌐
+                        class="w-20 h-20 safari-gradient rounded-2xl flex items-center justify-center mx-auto mb-6 text-4xl shadow-lg text-white">
+                        <i class="fa-solid fa-globe"></i>
                     </div>
                     <h3 class="text-xl font-black text-gray-900 mb-3">Languages</h3>
                     <p class="text-gray-600 font-medium">English, Arabic<br>German, French</p>
@@ -189,8 +198,8 @@
                 <div
                     class="bg-white rounded-3xl p-8 shadow-xl text-center border-2 border-safari-gold/20 hover:shadow-2xl transition-all transform hover:-translate-y-2">
                     <div
-                        class="w-20 h-20 safari-gradient rounded-2xl flex items-center justify-center mx-auto mb-6 text-4xl shadow-lg">
-                        🎯
+                        class="w-20 h-20 safari-gradient rounded-2xl flex items-center justify-center mx-auto mb-6 text-4xl shadow-lg text-white">
+                        <i class="fa-solid fa-bullseye"></i>
                     </div>
                     <h3 class="text-xl font-black text-gray-900 mb-3">Quick Response</h3>
                     <p class="text-gray-600 font-medium">24/7 Emergency Support<br>for Active Tours</p>

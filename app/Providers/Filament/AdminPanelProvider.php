@@ -27,8 +27,11 @@ class AdminPanelProvider extends PanelProvider
             ->id('admin')
             ->path('admin')
             ->login()
+            ->brandLogo(asset('logo.png'))
+            ->brandLogoHeight('3rem')
+            ->favicon(asset('logo.png'))
             ->colors([
-                'primary' => Color::Amber,
+                'primary' => '#E89B3C',
             ])
             ->databaseNotifications()   // ✅ REQUIRED
             ->databaseNotificationsPolling('500s') // optional auto refresh

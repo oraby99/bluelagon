@@ -1,6 +1,6 @@
 <x-layout>
     <!-- Hero Gallery -->
-    <div class="relative h-[600px] bg-gray-900 overflow-hidden">
+    <div class="relative h-[50vh] min-h-[400px] bg-gray-900 overflow-hidden">
         <img src="{{ $tour->getFirstMediaUrl('gallery') ?: 'https://via.placeholder.com/1920x600' }}" 
              alt="{{ $tour->name }}" 
              class="w-full h-full object-cover opacity-80 scale-110">
@@ -39,8 +39,8 @@
         </div>
     </div>
 
-    <div class="container mx-auto px-4 py-16 bg-gradient-to-br from-amber-50 via-orange-50 to-yellow-50">
-        <div class="flex flex-col lg:flex-row gap-12">
+    <div class="container mx-auto px-4 py-12 lg:py-16 bg-gradient-to-br from-amber-50 via-orange-50 to-yellow-50">
+        <div class="flex flex-col lg:flex-row gap-8 lg:gap-12">
             <!-- Content -->
             <div class="w-full lg:w-2/3">
                 <div class="bg-white rounded-3xl p-10 shadow-2xl mb-10 border-2 border-safari-gold/20">
@@ -161,24 +161,24 @@
                         }
                     }" @submit.prevent="submit" class="space-y-5">
                         <div>
-                            <label class="block text-sm font-black text-gray-800 mb-2">📅 Date</label>
-                            <input type="date" x-model="date" required class="w-full rounded-xl border-2 border-gray-200 focus:border-safari-orange focus:ring-safari-orange font-semibold py-3">
+                            <label class="block text-sm font-black text-gray-800 mb-2"><i class="fa-regular fa-calendar-days text-safari-orange mr-2"></i>Date</label>
+                            <input type="date" x-model="date" required class="w-full rounded-xl border-2 border-gray-200 focus:border-safari-orange focus:ring-safari-orange font-semibold px-4 py-3 text-gray-700">
                         </div>
                         <div>
-                            <label class="block text-sm font-black text-gray-800 mb-2">👥 Number of Persons</label>
-                            <input type="number" x-model="persons" min="1" required class="w-full rounded-xl border-2 border-gray-200 focus:border-safari-orange focus:ring-safari-orange font-semibold py-3">
+                            <label class="block text-sm font-black text-gray-800 mb-2"><i class="fa-solid fa-user-group text-safari-orange mr-2"></i>Number of Persons</label>
+                            <input type="number" x-model="persons" min="1" placeholder="e.g. 2" required class="w-full rounded-xl border-2 border-gray-200 focus:border-safari-orange focus:ring-safari-orange font-semibold px-4 py-3 text-gray-700 placeholder-gray-400">
                         </div>
                         <div>
-                            <label class="block text-sm font-black text-gray-800 mb-2">👤 Your Name</label>
-                            <input type="text" x-model="name" required class="w-full rounded-xl border-2 border-gray-200 focus:border-safari-orange focus:ring-safari-orange font-semibold py-3">
+                            <label class="block text-sm font-black text-gray-800 mb-2"><i class="fa-regular fa-user text-safari-orange mr-2"></i>Your Name</label>
+                            <input type="text" x-model="name" placeholder="Full Name" required class="w-full rounded-xl border-2 border-gray-200 focus:border-safari-orange focus:ring-safari-orange font-semibold px-4 py-3 text-gray-700 placeholder-gray-400">
                         </div>
                         <div>
-                            <label class="block text-sm font-black text-gray-800 mb-2">📱 Phone Number</label>
-                            <input type="tel" x-model="phone" required class="w-full rounded-xl border-2 border-gray-200 focus:border-safari-orange focus:ring-safari-orange font-semibold py-3">
+                            <label class="block text-sm font-black text-gray-800 mb-2"><i class="fa-solid fa-phone text-safari-orange mr-2"></i>Phone Number</label>
+                            <input type="tel" x-model="phone" placeholder="+1234567890" required class="w-full rounded-xl border-2 border-gray-200 focus:border-safari-orange focus:ring-safari-orange font-semibold px-4 py-3 text-gray-700 placeholder-gray-400">
                         </div>
                         <div>
-                            <label class="block text-sm font-black text-gray-800 mb-2">📍 Pickup Location</label>
-                            <input type="text" x-model="pickup" class="w-full rounded-xl border-2 border-gray-200 focus:border-safari-orange focus:ring-safari-orange font-semibold py-3" placeholder="Hotel name or address">
+                            <label class="block text-sm font-black text-gray-800 mb-2"><i class="fa-solid fa-location-dot text-safari-orange mr-2"></i>Pickup Location</label>
+                            <input type="text" x-model="pickup" placeholder="Hotel Name or Address" required class="w-full rounded-xl border-2 border-gray-200 focus:border-safari-orange focus:ring-safari-orange font-semibold px-4 py-3 text-gray-700 placeholder-gray-400">
                         </div>
                         
                         <button type="submit" :disabled="loading" class="w-full bg-gradient-to-r from-[#2a3a45] to-[#151b23] text-white py-4 rounded-2xl font-black hover:shadow-2xl transition-all flex items-center justify-center gap-3 disabled:opacity-50 transform hover:scale-105 text-lg">

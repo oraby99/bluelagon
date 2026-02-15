@@ -6,7 +6,7 @@
                 <p class="text-gray-600 max-w-2xl mx-auto">Latest news, travel tips, and stories from the Red Sea.</p>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 modern-card-grid">
                 @foreach($posts as $post)
                     <article class="bg-white rounded-2xl shadow-sm overflow-hidden hover:shadow-xl transition duration-300">
                         <a href="{{ route('blog.show', $post->slug) }}" class="block relative h-64 overflow-hidden">
