@@ -14,7 +14,15 @@ if (!function_exists('setting')) {
     {
         return Cache::remember("setting_{$key}", 3600, function () use ($key, $default) {
             $setting = \App\Models\Setting::where('key', $key)->first();
-            return $setting ? $setting->value : $default;
+            if (!$setting) {
+                return $default;
+            }
+            $value = $setting->value;
+            // If the cast returned an array, try to get a usable string
+            if (is_array($value)) {
+                return !empty($value) ? (string) reset($value) : $default;
+            }
+            return $value;
         });
     }
 }
