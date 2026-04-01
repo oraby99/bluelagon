@@ -2,45 +2,57 @@
 
 namespace App\Console\Commands;
 
-use App\Models\Setting;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Cache;
+use Illuminate\Support\Facades\DB;
 
 class FixSettingsValues extends Command
 {
     protected $signature = 'settings:fix';
-    protected $description = 'Fix settings values that were stored as JSON objects from the old KeyValue form';
+    protected $description = 'Fix settings values - convert JSON objects to JSON strings and show current state';
 
     public function handle()
     {
-        $settings = Setting::all();
-        $fixed = 0;
+        $this->info('=== Current Settings in DB ===');
+        $settings = DB::table('settings')->get();
 
         foreach ($settings as $setting) {
-            $value = $setting->value; // decoded by array cast
+            $raw = $setting->value;
+            $this->line("[{$setting->key}] raw DB value: {$raw}");
 
-            if (is_array($value)) {
-                // Old KeyValue format: {"property": "actual_value"}
-                $newValue = !empty($value) ? (string) reset($value) : '';
-                // Setting via model attribute triggers the cast to json_encode properly
-                $setting->value = $newValue;
-                $setting->save();
+            $decoded = json_decode($raw, true);
 
-                $this->info("Fixed [{$setting->key}]: " . json_encode($value) . " → \"{$newValue}\"");
-                $fixed++;
+            if (is_array($decoded)) {
+                // Old KeyValue format like {"property":"actual_value"}
+                // Extract the first value and store as JSON string
+                $extracted = !empty($decoded) ? (string) reset($decoded) : '';
+                $jsonString = json_encode($extracted); // Wrap as JSON string: "value"
+
+                DB::table('settings')
+                    ->where('id', $setting->id)
+                    ->update(['value' => $jsonString]);
+
+                $this->info("  → FIXED: {$raw}  →  {$jsonString}");
             } else {
-                $this->line("OK [{$setting->key}]: \"{$value}\" (already a plain value)");
+                $this->line("  → OK (not a JSON object)");
             }
 
             // Clear cache for this setting
             Cache::forget("setting_{$setting->key}");
         }
 
-        // Clear all application cache
+        // Clear all cache
         $this->call('cache:clear');
 
         $this->newLine();
-        $this->info("Done! Fixed {$fixed} settings. Cache cleared.");
+        $this->info('=== After Fix ===');
+        $settings = DB::table('settings')->get();
+        foreach ($settings as $setting) {
+            $this->line("[{$setting->key}] = {$setting->value}");
+        }
+
+        $this->newLine();
+        $this->info('Done! All settings fixed and cache cleared.');
 
         return Command::SUCCESS;
     }
