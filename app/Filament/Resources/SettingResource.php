@@ -26,9 +26,8 @@ class SettingResource extends Resource
                 Forms\Components\TextInput::make('key')
                     ->required()
                     ->unique(ignoreRecord: true),
-                Forms\Components\KeyValue::make('value')
-                    ->keyLabel('Property')
-                    ->valueLabel('Value'),
+                Forms\Components\TextInput::make('value')
+                    ->required(),
                 Forms\Components\TextInput::make('group')
                     ->default('general'),
             ]);

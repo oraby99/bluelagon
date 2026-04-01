@@ -18,11 +18,12 @@ if (!function_exists('setting')) {
                 return $default;
             }
             $value = $setting->value;
-            // If the cast returned an array, try to get a usable string
-            if (is_array($value)) {
-                return !empty($value) ? (string) reset($value) : $default;
+            // Handle legacy JSON-encoded values from old KeyValue form
+            $decoded = json_decode($value, true);
+            if (is_array($decoded)) {
+                return !empty($decoded) ? (string) reset($decoded) : $default;
             }
-            return $value;
+            return $value ?: $default;
         });
     }
 }
