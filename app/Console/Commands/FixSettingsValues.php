@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Cache;
 class FixSettingsValues extends Command
 {
     protected $signature = 'settings:fix';
-    protected $description = 'Fix settings values that were stored as JSON from the old KeyValue form';
+    protected $description = 'Fix settings values that were stored as JSON objects from the old KeyValue form';
 
     public function handle()
     {
@@ -17,21 +17,19 @@ class FixSettingsValues extends Command
         $fixed = 0;
 
         foreach ($settings as $setting) {
-            $original = $setting->value;
+            $value = $setting->value; // decoded by array cast
 
-            // Try to decode as JSON
-            $decoded = json_decode($original, true);
-
-            if (is_array($decoded)) {
-                // Extract the first value from the JSON object
-                $newValue = !empty($decoded) ? (string) reset($decoded) : '';
+            if (is_array($value)) {
+                // Old KeyValue format: {"property": "actual_value"}
+                $newValue = !empty($value) ? (string) reset($value) : '';
+                // Setting via model attribute triggers the cast to json_encode properly
                 $setting->value = $newValue;
                 $setting->save();
 
-                $this->info("Fixed [{$setting->key}]: \"{$original}\" → \"{$newValue}\"");
+                $this->info("Fixed [{$setting->key}]: " . json_encode($value) . " → \"{$newValue}\"");
                 $fixed++;
             } else {
-                $this->line("OK [{$setting->key}]: \"{$original}\" (already a string)");
+                $this->line("OK [{$setting->key}]: \"{$value}\" (already a plain value)");
             }
 
             // Clear cache for this setting

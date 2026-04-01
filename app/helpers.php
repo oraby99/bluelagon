@@ -18,12 +18,15 @@ if (!function_exists('setting')) {
                 return $default;
             }
             $value = $setting->value;
-            // Handle legacy JSON-encoded values from old KeyValue form
-            $decoded = json_decode($value, true);
-            if (is_array($decoded)) {
-                return !empty($decoded) ? (string) reset($decoded) : $default;
+            // Array cast returns string for JSON strings, array for JSON objects
+            if (is_string($value)) {
+                return $value ?: $default;
             }
-            return $value ?: $default;
+            // Old KeyValue format stored as JSON object {"key":"val"}
+            if (is_array($value)) {
+                return !empty($value) ? (string) reset($value) : $default;
+            }
+            return $default;
         });
     }
 }
