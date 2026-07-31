@@ -1,100 +1,122 @@
-# Deployment Guide
+# Deployment Guide — Hostinger Shared Hosting
 
-Here are the manual steps to deploy your application to the server.
+Production: **bluelagoon.fun** · Laravel 10.50 + Filament · PHP 8.3
 
-> [!NOTE]
-> **Need to install NPM on the server?**
-> If you are on a shared hosting (cPanel/Namecheap/etc) and `npm` is missing:
-> 1. Run this command to install NVM (Node Version Manager):
->    ```bash
->    curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
->    ```
-> 2. Activate it:
->    ```bash
->    source ~/.bashrc
->    ```
-> 3. Install Node.js:
->    ```bash
->    nvm install --lts
->    ```
-> 4. Now `npm` should work!
+## Server layout
 
-> [!WARNING]
-> **If `npm` is strictly not allowed on your server:**
-> Do **Step 6** on your **LOCAL machine** (computer) first, then upload the `public/build` folder to your server's `public/` directory.
+The application lives **outside** the web root. `public_html` is a symlink to `laravel/public`,
+so only the `public/` directory is ever reachable from the internet.
 
-## Prerequisites
-- SSH Access to your server.
-- Git, Composer, NPM installed.
+```
+~/domains/bluelagoon.fun/
+├── laravel/          <- the repository (git clone lives here)
+│   ├── app/ config/ routes/ storage/ vendor/ ...
+│   ├── .env          <- server-only, never committed
+│   └── public/
+│       └── storage -> ../storage/app/public   (symlink)
+└── public_html -> laravel/public              (symlink)
+```
 
-## Steps
+## Server limitations to remember
 
-1. **Navigate to Project Directory**
-   ```bash
-   cd /path/to/your/project
-   ```
+Hostinger's shared PHP has `proc_open()` and `symlink()` disabled. Two consequences:
 
-2. **Pull Latest Changes**
-   ```bash
-   git pull origin main
-   ```
+- `composer install` must be run with `--no-scripts`, then `php artisan package:discover` manually.
+- `php artisan storage:link` fails. Create the link from the shell with `ln -s` instead.
 
-3. **Install Dependencies**
-   ```bash
-   composer install --no-dev --optimize-autoloader
-   ```
+There is also **no Node.js**. Frontend assets must be built locally and committed —
+that is why `/public/build` is deliberately *not* in `.gitignore`.
 
-4. **Run Migrations**
-   ```bash
-   php artisan migrate --force
-   ```
+## Routine deploy
 
-5. **Clear & Cache Configuration**
-   ```bash
-   php artisan optimize:clear
-   php artisan config:cache
-   php artisan event:cache
-   php artisan route:cache
-   php artisan view:cache
-   ```
+```bash
+cd ~/domains/bluelagoon.fun/laravel
 
-6. **Build Frontend Assets**
-   *If `npm` works on server:*
-   ```bash
-   npm install
-   npm run build
-   ```
-   *If `npm` fails:*
-   **Option A (Manual Upload):**
-   - Run `npm run build` on your **local computer**.
-   - Compress/Zip the `public/build` folder.
-   - Upload it to `public/build` on the server.
+git status --short          # must be clean before pulling
+git pull origin master
 
-   **Option B (Git Commit - EASIEST):**
-   1. On Local: Open `.gitignore` and remove `/public/build`.
-   2. Run `npm run build`.
-   3. Commit the changes:
-      ```bash
-      git add public/build .gitignore
-      git commit -m "Include build assets"
-      git push origin main
-      ```
-   4. On Server:
-      ```bash
-      git pull origin main
-      ```
+composer install --no-dev --optimize-autoloader --no-scripts
+php artisan package:discover
 
-7. **Optimize Filament (Optional)**
-   ```bash
-   php artisan filament:optimize
-   ```
+php artisan migrate --force
 
-8. **Restart Queue Workers (If applicable)**
-   ```bash
-   php artisan queue:restart
-   ```
+php artisan optimize:clear
+php artisan config:cache
+php artisan route:cache
+php artisan view:cache
+```
 
-9. **Bring Application Up**
-   ```bash
-   php artisan up
-   ```
+If a Filament package was added or upgraded, also run:
+
+```bash
+php artisan filament:assets
+```
+
+## Frontend assets
+
+Build locally, commit the output, then pull on the server:
+
+```bash
+npm install
+npm run build
+git add public/build
+git commit -m "chore: rebuild frontend assets"
+git push origin master
+```
+
+## First-time setup on a fresh server
+
+```bash
+cd ~/domains/bluelagoon.fun
+git clone https://github.com/oraby99/bluelagon.git laravel
+
+cd laravel
+composer install --no-dev --optimize-autoloader --no-scripts
+php artisan package:discover
+
+cp .env.example .env
+nano .env                   # APP_ENV=production, APP_DEBUG=false, APP_URL, DB_*
+php artisan key:generate
+
+php artisan migrate --force
+
+# storage symlink (artisan cannot create it on this host)
+cd public && ln -s ../storage/app/public storage && cd ..
+
+chmod -R 775 storage bootstrap/cache
+
+# point the web root at public/
+cd ~/domains/bluelagoon.fun
+rm -rf public_html
+ln -s laravel/public public_html
+```
+
+Then create the Filament admin user:
+
+```bash
+cd ~/domains/bluelagoon.fun/laravel
+php artisan make:filament-user
+```
+
+## Scheduler
+
+hPanel → Advanced → Cron Jobs, every minute:
+
+```
+/usr/bin/php /home/u454266434/domains/bluelagoon.fun/laravel/artisan schedule:run >> /dev/null 2>&1
+```
+
+## Verification checklist
+
+```bash
+curl -sI https://bluelagoon.fun/.env  | head -1   # expect 403 or 404
+curl -sI https://bluelagoon.fun/      | head -1   # expect 200
+ls -la ~/domains/bluelagoon.fun/public_html       # expect symlink -> laravel/public
+tail -30 ~/domains/bluelagoon.fun/laravel/storage/logs/laravel.log
+```
+
+## Notes
+
+- `.env` is never committed. Keep the production values somewhere safe outside the repo.
+- `git config core.fileMode false` is set on the server so `chmod` does not surface as changes.
+- Do not edit files directly on the server. Change them locally, push, then pull.

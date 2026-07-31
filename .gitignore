@@ -1,18 +1,22 @@
 /.phpunit.cache
 /node_modules
-# /public/build
+# /public/build  -- intentionally tracked: no Node on the production server
 /public/hot
 /public/storage
+/public/build.zip
 /storage/*.key
 /vendor
 .env
-.env.backup
-.env.production
+.env.*
+!.env.example
 Homestead.json
 Homestead.yaml
 auth.json
+composer.phar
+error_log
 npm-debug.log
 yarn-error.log
 /.fleet
 /.idea
 /.vscode
+/.claude
